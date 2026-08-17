@@ -135,16 +135,22 @@ De forma geral, o projeto permitiu trabalhar com uma base de aproximadamente **4
 
 ## Arquivos do Projeto
 
+Os arquivos desenvolvidos estão organizados de acordo com as diferentes etapas da análise.
+
 ### Notebook
 
-📓 **Análise de Engajamento do Hacker News**
+📓 [Notebook - Análise de Engajamento do Hacker News](COLE_AQUI_O_LINK_DO_NOTEBOOK)
 
-Notebook desenvolvido no Visual Studio Code contendo a exploração inicial da base, as 12 consultas SQL, documentação dos recursos utilizados, validação e interpretação dos resultados.
+Notebook desenvolvido no Visual Studio Code, contendo a exploração inicial da base, documentação do ambiente e integração com o Google BigQuery, as 12 consultas SQL, validação dos dados e interpretação dos resultados.
 
 ### Consultas SQL
 
-A pasta `sql` contém as consultas SQL utilizadas no projeto, organizadas e nomeadas de acordo com cada análise.
+💻 [Acessar Consultas SQL](COLE_AQUI_O_LINK_DA_PASTA_SQL)
 
-### Resultados
+A pasta reúne as 12 consultas SQL desenvolvidas no projeto, organizadas e nomeadas de acordo com o objetivo de cada análise.
 
-A pasta `data` contém os resultados das consultas exportados em formato CSV.
+### Resultados das Consultas
+
+📊 [Acessar Resultados em CSV](COLE_AQUI_O_LINK_DA_PASTA_DATA)
+
+A pasta contém os resultados das 12 consultas SQL exportados em formato CSV, mantendo a organização e a padronização utilizadas durante a análise.
