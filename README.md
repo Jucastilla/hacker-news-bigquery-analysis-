@@ -135,22 +135,16 @@ De forma geral, o projeto permitiu trabalhar com uma base de aproximadamente **4
 
 ## Arquivos do Projeto
 
-Os arquivos desenvolvidos estão organizados de acordo com as diferentes etapas da análise.
+Os principais arquivos do projeto estão organizados entre o notebook da análise e os resultados exportados das consultas.
 
 ### Notebook
 
-📓 [Notebook - Análise de Engajamento do Hacker News](COLE_AQUI_O_LINK_DO_NOTEBOOK)
+📓 [Notebook - Análise de Engajamento do Hacker News](https://github.com/Jucastilla/hacker-news-bigquery-analysis-/blob/main/notebook/analise_hacker_news_bigquery.ipynb)
 
-Notebook desenvolvido no Visual Studio Code, contendo a exploração inicial da base, documentação do ambiente e integração com o Google BigQuery, as 12 consultas SQL, validação dos dados e interpretação dos resultados.
-
-### Consultas SQL
-
-💻 [Acessar Consultas SQL](COLE_AQUI_O_LINK_DA_PASTA_SQL)
-
-A pasta reúne as 12 consultas SQL desenvolvidas no projeto, organizadas e nomeadas de acordo com o objetivo de cada análise.
+Notebook desenvolvido no Visual Studio Code, contendo a exploração inicial da base, a documentação da integração com o Google BigQuery, as 12 consultas SQL, os procedimentos de validação e a interpretação dos resultados.
 
 ### Resultados das Consultas
 
-📊 [Acessar Resultados em CSV](COLE_AQUI_O_LINK_DA_PASTA_DATA)
+📊 [Acessar Resultados em CSV](https://github.com/Jucastilla/hacker-news-bigquery-analysis-/tree/main/data)
 
-A pasta contém os resultados das 12 consultas SQL exportados em formato CSV, mantendo a organização e a padronização utilizadas durante a análise.
+A pasta contém os resultados das 12 consultas SQL exportados em formato CSV, organizados e padronizados de acordo com cada análise.
