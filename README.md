@@ -1,7 +1,5 @@
 # Análise de Engajamento do Hacker News
 
-## Análise Exploratória com SQL e Google BigQuery
-
 ## Sobre o Projeto
 
 Este projeto foi desenvolvido durante a formação em Análise de Dados da EBAC, com o objetivo de aplicar consultas SQL analíticas no Google BigQuery utilizando uma base de dados pública.
