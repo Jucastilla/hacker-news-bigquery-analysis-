@@ -1,6 +1,6 @@
-# Projeto de Análise de Dados | BigQuery
+# # Projeto de Análise de Engajamento do Hacker News
 
-## Análise de Engajamento do Hacker News com SQL
+## Análise Exploratória com SQL e Google BigQuery
 
 ## Sobre o Projeto
 
