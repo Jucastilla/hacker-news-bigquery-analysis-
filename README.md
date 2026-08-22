@@ -1,4 +1,4 @@
-# # Projeto de Análise de Engajamento do Hacker News
+# Análise de Engajamento do Hacker News
 
 ## Análise Exploratória com SQL e Google BigQuery
 
