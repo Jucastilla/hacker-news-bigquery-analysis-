@@ -1,42 +1,36 @@
 # Análise de Engajamento do Hacker News
 
-## Sobre o Projeto
+## Contexto
 
-Este projeto foi desenvolvido durante a formação em Análise de Dados da EBAC, com o objetivo de aplicar consultas SQL analíticas no Google BigQuery utilizando uma base de dados pública.
+Este projeto foi desenvolvido durante a formação em **Análise de Dados da EBAC**, a partir de uma atividade de aplicação de consultas SQL analíticas em uma base pública no **Google BigQuery**.
 
-O desenvolvimento foi realizado no **Visual Studio Code**, onde foi configurado o ambiente de trabalho e realizada a integração com o **Google BigQuery**, permitindo o acesso à base pública utilizada nas análises e o desenvolvimento do notebook que documenta todo o projeto.
+Foi utilizada a base do **Hacker News**, que reúne registros históricos de publicações, comentários e outros tipos de conteúdo da plataforma. No momento da análise, a tabela selecionada continha **49.299.014 registros**.
 
-Para a análise, foi utilizada a base pública do Hacker News disponível no BigQuery. O conjunto de dados reúne registros históricos de publicações, comentários e outros tipos de conteúdo da plataforma, permitindo investigar diferentes aspectos relacionados à atividade e ao engajamento da comunidade.
+O ambiente foi configurado no **Visual Studio Code**, com integração ao **Google BigQuery** e desenvolvimento de um notebook para documentação do projeto.
 
-A proposta original da atividade envolvia o desenvolvimento de quatro consultas SQL analíticas. Como forma de aprofundar a exploração dos dados, o projeto foi ampliado para **12 consultas**, todas documentadas no notebook com seus objetivos, principais recursos SQL utilizados e interpretação dos resultados.
+A proposta original previa quatro consultas SQL. Para aprofundar a exploração dos dados, o projeto foi ampliado para **12 consultas**, documentadas com seus objetivos, recursos SQL utilizados e interpretação dos resultados.
 
 ## Objetivo
 
 Analisar padrões de publicação e engajamento no Hacker News utilizando SQL e Google BigQuery, explorando indicadores relacionados a score, comentários, autores, domínios e comportamento temporal das publicações.
 
-O projeto também busca demonstrar a aplicação de SQL em uma base pública de grande volume, contemplando desde a configuração do ambiente e integração com o BigQuery até a exploração, análise, validação e documentação dos resultados.
+O projeto também teve como objetivo aplicar SQL em uma base pública de grande volume, desde a configuração do ambiente e exploração dos dados até a validação e documentação dos resultados.
 
-## Etapas Desenvolvidas
+## Desenvolvimento
 
-### 1. Configuração do Ambiente e Integração com o BigQuery
+### Configuração do Ambiente e Integração
 
-O ambiente de desenvolvimento foi configurado no **Visual Studio Code**, utilizado para a elaboração e organização do notebook do projeto.
+O **Visual Studio Code** foi utilizado para elaboração e organização do notebook.
 
-Foi realizada a integração com o **Google BigQuery**, garantindo o acesso ao ambiente do Google Cloud e à base pública utilizada na análise.
+Foi realizada a integração com o **Google BigQuery**, incluindo a configuração do ambiente e das permissões necessárias para acessar a base pública.
 
-Após a configuração do ambiente e das permissões necessárias, as consultas SQL foram desenvolvidas e testadas no BigQuery, enquanto o processo técnico, as consultas e as interpretações dos resultados foram organizados e documentados no notebook.
+As consultas foram desenvolvidas e testadas no BigQuery. O processo técnico, as consultas e as interpretações foram documentados no notebook.
 
-### 2. Fonte e Exploração dos Dados
+### Fonte e Exploração dos Dados
 
-Foi utilizada a base pública:
+Foi utilizada a tabela:
 
-`bigquery-public-data.hacker_news`
-
-A tabela principal selecionada foi:
-
-`full`
-
-A tabela reúne registros históricos de diferentes tipos de conteúdo publicados no Hacker News.
+`bigquery-public-data.hacker_news.full`
 
 Durante a exploração inicial, foram analisados:
 
@@ -47,13 +41,11 @@ Durante a exploração inicial, foram analisados:
 - Presença de valores nulos;
 - Variáveis relevantes para análise de publicação e engajamento.
 
-No momento da análise, a tabela possuía **49.299.014 registros**.
-
 Entre os principais campos utilizados estão `by`, `score`, `descendants`, `timestamp`, `url`, `type` e `id`.
 
-### 3. Desenvolvimento das Consultas SQL
+### Desenvolvimento das Consultas SQL
 
-Foram desenvolvidas **12 consultas SQL analíticas**, abrangendo diferentes perspectivas sobre publicação e engajamento no Hacker News:
+Foram desenvolvidas **12 consultas analíticas**:
 
 1. Distribuição dos tipos de conteúdo;
 2. Publicações com maiores scores;
@@ -68,81 +60,102 @@ Foram desenvolvidas **12 consultas SQL analíticas**, abrangendo diferentes pers
 11. Desempenho por domínio;
 12. Relação entre comentários e score.
 
-As consultas utilizaram recursos como filtros, agregações, agrupamentos, ordenações, funções de data e hora, estruturas condicionais, joins e cálculos derivados.
+As consultas utilizaram:
 
-### 4. Análise dos Resultados
+- Filtros;
+- Funções de agregação;
+- Agrupamentos e ordenações;
+- Funções de data e hora;
+- Estruturas condicionais;
+- JOINs;
+- Cálculos derivados.
 
-As consultas permitiram analisar o comportamento das publicações e do engajamento da comunidade sob diferentes perspectivas.
+Cada consulta foi acompanhada de seu objetivo, dos principais recursos SQL utilizados e da interpretação dos resultados.
 
-Entre os principais resultados observados:
+### Validação dos Dados e das Métricas
 
-- A maior parte das publicações apresenta baixo score e poucos comentários;
-- Publicações pertencentes às maiores faixas de score apresentam médias de comentários significativamente superiores;
-- A quantidade de comentários apresenta associação crescente com o score das publicações;
-- Os períodos de maior volume de publicações não correspondem necessariamente aos períodos de maior engajamento médio;
-- Foram identificadas diferenças de desempenho entre autores e domínios;
-- A evolução histórica demonstra mudanças nos níveis de publicação e engajamento ao longo dos anos.
+Foram realizadas verificações de valores nulos, possíveis duplicidades e consistência das métricas.
 
-### 5. Validação dos Dados
+As consultas utilizaram filtros com `IS NOT NULL` quando as variáveis eram necessárias para os cálculos.
 
-Os resultados foram validados considerando consistência das métricas, presença de valores nulos e possíveis duplicidades.
+A verificação de duplicidades pelo campo `id` apresentou:
 
-Durante a exploração foram identificados valores nulos em diferentes campos. Por esse motivo, as consultas aplicaram filtros com `IS NOT NULL` quando as respectivas variáveis eram necessárias para os cálculos.
+| Verificação | Resultado |
+|---|---|
+| Total de registros | 49.299.014 |
+| IDs únicos | 49.299.014 |
+| Possíveis duplicados por `id` | 0 |
 
-A verificação de duplicidades utilizando o campo `id` apresentou:
+Os resultados das consultas também foram comparados para verificar a coerência entre métricas, filtros e agrupamentos.
 
-- **49.299.014 registros**;
-- **49.299.014 IDs únicos**;
-- **0 possíveis duplicados**.
+### Documentação e Exportação
 
-Os resultados das diferentes consultas também foram comparados para verificar a coerência entre métricas, filtros e agrupamentos utilizados.
+O notebook reuniu a exploração inicial, a documentação da integração com o BigQuery, as consultas SQL, os procedimentos de validação e as interpretações.
 
-### 6. Conclusões
+Os resultados das 12 consultas foram exportados em formato CSV, organizados e padronizados de acordo com cada análise.
 
-A análise demonstrou que o engajamento no Hacker News apresenta uma distribuição bastante desigual. A maior parte das publicações concentra baixos níveis de score e comentários, enquanto uma parcela menor alcança níveis significativamente superiores de interação.
+## Resultados
 
-Também foi observada uma associação entre comentários e score: conforme aumenta a quantidade de comentários, aumentam também os valores médios e medianos de score. Essa associação representa um padrão observado nos dados e não implica necessariamente uma relação causal.
+### Distribuição do Engajamento
 
-As análises temporais mostraram que maior volume de publicações não significa necessariamente maior engajamento médio. Da mesma forma, as análises por autor e domínio demonstraram diferenças entre quantidade de publicações e desempenho.
+A análise mostrou uma distribuição desigual do engajamento: a maior parte das publicações apresentou baixo score e poucos comentários, enquanto uma parcela menor concentrou níveis superiores de interação.
 
-De forma geral, o projeto permitiu trabalhar com uma base de aproximadamente **49 milhões de registros**, utilizando o Visual Studio Code integrado ao Google BigQuery para desenvolver, validar e documentar consultas SQL capazes de transformar os dados históricos em indicadores sobre o comportamento e o engajamento da comunidade.
+As publicações nas maiores faixas de score apresentaram médias de comentários significativamente superiores.
+
+### Relação entre Comentários e Score
+
+Foi observada uma associação entre a quantidade de comentários e o score das publicações. Conforme aumentou a quantidade de comentários, também aumentaram os valores médios e medianos de score.
+
+Esse resultado representa uma associação observada nos dados e não implica uma relação causal.
+
+### Padrões Temporais
+
+Os períodos com maior volume de publicações não corresponderam necessariamente aos períodos de maior engajamento médio.
+
+A análise histórica também identificou mudanças nos níveis de publicação e engajamento ao longo dos anos.
+
+### Autores e Domínios
+
+Foram identificadas diferenças de desempenho entre autores e domínios, distinguindo quantidade de publicações e engajamento obtido.
+
+### Entregas do Projeto
+
+O projeto resultou em **12 consultas SQL documentadas**, com resultados exportados em CSV e análises sobre publicação e engajamento em uma base de aproximadamente **49 milhões de registros**.
+
+O desenvolvimento permitiu aplicar exploração, agregação, validação e interpretação de dados utilizando SQL no Google BigQuery, com documentação organizada em um notebook no Visual Studio Code.
 
 ## Habilidades Demonstradas
 
-- Análise de Dados
-- SQL
-- Google BigQuery
-- Google Cloud
-- Visual Studio Code
-- Jupyter Notebook
-- Integração com BigQuery
-- Exploração de Dados
-- Validação de Dados
-- Tratamento de Valores Nulos
-- Verificação de Duplicidades
-- Agregação e Agrupamento de Dados
-- JOIN
-- CASE WHEN
-- Funções de Data e Hora
-- Funções de Agregação
-- Cálculos Derivados
-- Análise Temporal
-- Análise de Engajamento
-- Geração de Insights
-- Documentação Técnica
+- Análise de dados;
+- SQL;
+- Google BigQuery;
+- Google Cloud;
+- Visual Studio Code;
+- Jupyter Notebook;
+- Integração com BigQuery;
+- Exploração de dados;
+- Validação de dados;
+- Tratamento de valores nulos;
+- Verificação de duplicidades;
+- Agregação e agrupamento de dados;
+- JOIN;
+- CASE WHEN;
+- Funções de data e hora;
+- Funções de agregação;
+- Cálculos derivados;
+- Análise temporal;
+- Análise de engajamento;
+- Geração de insights;
+- Documentação técnica.
 
 ## Arquivos do Projeto
 
-Os principais arquivos do projeto estão organizados entre o notebook da análise e os resultados exportados das consultas.
+Os arquivos estão organizados entre o notebook da análise e os resultados exportados das consultas.
 
-### Notebook
-
-📓 [Notebook - Análise de Engajamento do Hacker News](https://github.com/Jucastilla/hacker-news-bigquery-analysis-/blob/main/notebook/analise_hacker_news_bigquery.ipynb)
+### [Notebook — Análise de Engajamento do Hacker News](https://github.com/Jucastilla/hacker-news-bigquery-analysis-/blob/main/notebook/analise_hacker_news_bigquery.ipynb)
 
 Notebook desenvolvido no Visual Studio Code, contendo a exploração inicial da base, a documentação da integração com o Google BigQuery, as 12 consultas SQL, os procedimentos de validação e a interpretação dos resultados.
 
-### Resultados das Consultas
+### [Resultados das Consultas em CSV](https://github.com/Jucastilla/hacker-news-bigquery-analysis-/tree/main/data)
 
-📊 [Acessar Resultados em CSV](https://github.com/Jucastilla/hacker-news-bigquery-analysis-/tree/main/data)
-
-A pasta contém os resultados das 12 consultas SQL exportados em formato CSV, organizados e padronizados de acordo com cada análise.
+Pasta com os resultados das 12 consultas SQL exportados em formato CSV, organizados e padronizados de acordo com cada análise.
